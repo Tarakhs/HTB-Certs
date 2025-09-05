@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTB-Certs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            color: #e6e6e6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #9ef01a;
+            text-shadow: 0 0 10px rgba(158, 240, 26, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a5a5a5;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .certificate-card {
+            background: #1e1e2e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(158, 240, 26, 0.2);
+        }
+        
+        .certificate-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid #9ef01a;
+        }
+        
+        .certificate-info {
+            padding: 20px;
+        }
+        
+        .certificate-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .certificate-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 30, 46, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .certificate-card:hover .certificate-details {
+            opacity: 1;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+        }
+        
+        .detail-label {
+            font-size: 0.9rem;
+            color: #9ef01a;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        
+        .serial-id {
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: #9ef01a;
+        }
+        
+        footer {
+            margin-top: 60px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="certificates-grid">
+            <!-- Certificate 1 -->
+            <div class="certificate-card">
+                <img src="https://github.com/Tarakhs/HTB-Certs/blob/main/Dante.png" alt="Dante Cert" class="certificate-image">
+                <div class="certificate-info">
+                    <h3 class="certificate-title">Dante</h3>
+                </div>
+                <div class="certificate-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Completion Date</div>
+                        <div class="detail-value">05 September 2024</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Serial ID</div>
+                        <div class="detail-value serial-id">HTBCERT-CBD50EC5D3</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certificate 2 -->
+            <div class="certificate-card">
+                <img src="https://github.com/Tarakhs/HTB-Certs/blob/main/Zephyr.png" alt="Zephyr Cert" class="certificate-image">
+                <div class="certificate-info">
+                    <h3 class="certificate-title">Zephyr</h3>
+                </div>
+                <div class="certificate-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Completion Date</div>
+                        <div class="detail-value">29 September 2024</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Serial ID</div>
+                        <div class="detail-value serial-id">HTBCERT-4392377EB4</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certificate 3 -->
+            <div class="certificate-card">
+                <img src="https://github.com/Tarakhs/HTB-Certs/blob/main/RastaLabs.png" alt="Rasta Cert" class="certificate-image">
+                <div class="certificate-info">
+                    <h3 class="certificate-title">RastaLabs</h3>
+                </div>
+                <div class="certificate-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Completion Date</div>
+                        <div class="detail-value">04 April 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Serial ID</div>
+                        <div class="detail-value serial-id">HTBCERT-3C12A4FC1B</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certificate 4 -->
+            <div class="certificate-card">
+                <img src="https://github.com/Tarakhs/HTB-Certs/blob/main/Cybernetics.png" alt="Cyber Cert" class="certificate-image">
+                <div class="certificate-info">
+                    <h3 class="certificate-title">Cybernetics</h3>
+                </div>
+                <div class="certificate-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Completion Date</div>
+                        <div class="detail-value">03 May 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Serial ID</div>
+                        <div class="detail-value serial-id">HTBCERT-4B84A3462A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Tarakhs</p>
+        </footer>
+    </div>
+</body>
+</html>
